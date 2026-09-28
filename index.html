@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>if Magazines — The iFuntology Ecosystem · Issue 2026</title>
+<style>
+  html, body { margin:0; height:100%; background:#0b0d10; color:#f4f1ea; font-family: Georgia, serif; }
+  header { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.75rem 1.25rem; background:#12161c; border-bottom:1px solid #243041; }
+  header h1 { margin:0; font-size:clamp(.85rem,2.2vw,1.05rem); font-weight:600; }
+  #wrap { height: calc(100% - 56px); display:flex; align-items:center; justify-content:center; padding:1rem; }
+  .controls { display:flex; gap:.5rem; align-items:center; }
+  button { background:#1c2430; color:#f4f1ea; border:1px solid #334155; border-radius:6px; padding:.35rem .7rem; cursor:pointer; }
+  #pageLabel { font-size:.85rem; opacity:.85; min-width:4.5rem; text-align:center; }
+</style>
+</head>
+<body>
+<header>
+  <h1>if Magazines — The iFuntology Ecosystem · Issue 2026</h1>
+  <div class="controls">
+    <button type="button" id="prev">‹ Prev</button>
+    <span id="pageLabel">…</span>
+    <button type="button" id="next">Next ›</button>
+  </div>
+</header>
+<div id="wrap"><div id="status">Loading flipbook…</div><div id="book" hidden></div></div>
+<script src="p00.js"></script>
+<script src="p01.js"></script>
+<script src="p02.js"></script>
+<script src="p03.js"></script>
+<script src="p04.js"></script>
+<script src="p05.js"></script>
+<script src="p06.js"></script>
+<script src="p07.js"></script>
+<script src="p08.js"></script>
+<script src="p09.js"></script>
+<script src="p10.js"></script>
+<script src="p11.js"></script>
+<script src="p12.js"></script>
+<script src="p13.js"></script>
+<script src="p14.js"></script>
+<script src="p15.js"></script>
+<script src="p16.js"></script>
+<script src="p17.js"></script>
+<script src="p18.js"></script>
+<script src="p19.js"></script>
+<script src="p20.js"></script>
+<script src="p21.js"></script>
+<script src="p22.js"></script>
+<script src="p23.js"></script>
+<script src="p24.js"></script>
+<script src="p25.js"></script>
+<script src="p26.js"></script>
+<script src="p27.js"></script>
+<script src="p28.js"></script>
+<script src="p29.js"></script>
+<script src="p30.js"></script>
+<script src="p31.js"></script>
+<script src="p32.js"></script>
+<script src="p33.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
+<script>
+(function() {
+  const pages = window.FLIP_PAGES || [];
+  if (!pages.length) { document.getElementById('status').textContent = 'Failed to load pages.'; return; }
+  document.getElementById('status').hidden = true;
+  const bookEl = document.getElementById('book');
+  bookEl.hidden = false;
+  const pageFlip = new St.PageFlip(bookEl, {
+    width: 630, height: 810, size: 'stretch',
+    minWidth: 280, maxWidth: 1100, minHeight: 360, maxHeight: 1400,
+    showCover: true, mobileScrollSupport: true, useMouseEvents: true,
+    flippingTime: 700, maxShadowOpacity: 0.45, drawShadow: true,
+  });
+  pageFlip.loadFromImages(pages);
+  const label = document.getElementById('pageLabel');
+  const sync = () => { label.textContent = (pageFlip.getCurrentPageIndex()+1) + ' / ' + pageFlip.getPageCount(); };
+  pageFlip.on('flip', sync); sync();
+  document.getElementById('prev').onclick = () => pageFlip.flipPrev();
+  document.getElementById('next').onclick = () => pageFlip.flipNext();
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') pageFlip.flipPrev();
+    if (e.key === 'ArrowRight') pageFlip.flipNext();
+  });
+})();
+</script>
+</body>
+</html>
