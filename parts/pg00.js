@@ -1,1 +1,1 @@
-window.FLIP_PAGES=(window.FLIP_PAGES||[]).concat(["data:image/jpeg;base64,test"]);
+PLACEHOLDER_WILL_REPLACE
